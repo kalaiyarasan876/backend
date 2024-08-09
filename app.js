@@ -10,12 +10,32 @@ const connectDatabase = require("./config/connectDatabase")
 
 const products = require("./routes/product");
 const orders = require("./routes/order");
+// const { getProducts } = require("./controllers/productController");
+// const productModel = require("./models/productModel");
 
 
 app.use(express.json())
 app.use(cors())
 app.use('/api/v1/',products)
 app.use('/api/v1/',orders)
+
+// app.get('/allproducts',async function(req,res){
+//   try{
+//     console.log(getProducts);
+    
+//     const response = await productModel.find({})
+//     res.json({
+//       // success: true,
+//       message: "Get product Working!",
+//       response
+//     })
+//     console.log(response);
+    
+//    }
+//   catch(err){
+//     res.json({message: err.message});
+//   }
+// })
 
 
 app.listen(process.env.PORT, () => {

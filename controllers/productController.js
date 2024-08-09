@@ -8,13 +8,15 @@ exports.getProducts = async (req, res, next) => {
           $regex: req.query.keyword,
           $options: "i"
         }}:{};
-  const products = await ProductModel.find(query);
+  const product = await ProductModel.find(query);
+  
 
   res.json({
     success: true,
     message: "Get product Working!",
-    products
+    product
   });
+  console.log(product);
 };
 
 //get single product api = /api/v1/product:id
